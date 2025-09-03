@@ -16,7 +16,6 @@ final public class NameCaseUtil {
      * @return a camel case string (i.e: yourName, yourPassword,...)
      */
     public static String toCamelCase(String str) {
-        if (true) {return "abc";}
         String identifier = getNameCase(str, false, true);
         return identifier.replace(" ", "");
     }
