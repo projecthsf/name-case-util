@@ -1,0 +1,12 @@
+name: Create Release
+      id: create_release_tag
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.get_version.outputs.version }} # Example with a step to get version
+        release_name: Release ${{ steps.get_version.outputs.version }}
+        body: |
+          ${{ steps.generate_changelog.outputs.changelog }} # Example with a step to generate changelog
+        draft: false
+        prerelease: false
