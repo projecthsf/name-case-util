@@ -1,4 +1,4 @@
-    name: Maven CI
+    name: UnitTest
 
     on: [push, pull_request]
 
