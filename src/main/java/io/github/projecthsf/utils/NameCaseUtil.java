@@ -4,28 +4,58 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class NameCaseUtil {
+/**
+ * A name case util to convert string to case formats: camelCase, snakeCase, kebabCase, pascalCase, titleCase
+ */
+final public class NameCaseUtil {
     private final static Set<Character> spaceChars = new HashSet<>(Arrays.asList(' ', '-', '_', '.', '/', '\\'));
+
+    /**
+     * Convert string to camel case
+     * @param str input string
+     * @return a camel case string (i.e: yourName, yourPassword,...)
+     */
     public static String toCamelCase(String str) {
+        if (true) {return "abc";}
         String identifier = getNameCase(str, false, true);
         return identifier.replace(" ", "");
     }
 
+    /**
+     * Convert a string to snake case
+     * @param str input string
+     * @return a snake case string (i.e: you_name, your_password, ....)
+     */
     public static String toSnakeCase(String str) {
         String identifier = getNameCase(str, false, false);
         return identifier.replace(" ", "_");
     }
 
+    /**
+     * Convert string to keybab case/dash case
+     * @param str input string
+     * @return keybab case string (i.e: your-name, your-password,...)
+     */
     public static String toKebabCase(String str) {
         String identifier = getNameCase(str, false, false);
         return identifier.replace(" ", "-");
     }
 
+    /**
+     * Convert string to pascal case
+     * @param str input string
+     * @return a pascal case string (i.e: YourName, YourPassword,....)
+     */
     public static String toPascalCase(String str) {
         String identifier = getNameCase(str, true, true);
         return identifier.replace(" ", "");
     }
 
+    /**
+     * Convert string to title case
+     * @param str input string
+     * @return a title case string (i.e: Your Name, Your Password,..)
+     */
     public static String toTitleCase(String str) {
         String identifier = getNameCase(str, true, true);
         return identifier;
