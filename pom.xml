@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.projecthsf</groupId>
 	<artifactId>name-case-util</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<name>name-case-util</name>
 	<packaging>jar</packaging>
 	<description>Provide name case util: camelCase, snakeCase, pascalCase, kebabCase, ...</description>
