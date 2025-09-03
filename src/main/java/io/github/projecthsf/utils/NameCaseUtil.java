@@ -84,6 +84,11 @@ final public class NameCaseUtil {
             }
 
             if (Character.isDigit(c)) {
+                if (result.length() == 0) {
+                    result.append(c);
+                    continue;
+                }
+
                 result.append(checkLastCharIsSpaceOrDigit(result) ? c: " " + c);
                 continue;
             }
@@ -101,15 +106,21 @@ final public class NameCaseUtil {
                 result.append(" ");
             }
         }
-        return result.toString();
+        return result.toString().trim();
     }
 
     private static boolean checkLastCharIsSpace(StringBuilder result) {
+        if (result.length() == 0) {
+            return false;
+        }
         char lastChar = result.charAt(result.length() - 1);
         return spaceChars.contains(lastChar);
     }
 
     private static boolean checkLastCharIsSpaceOrDigit(StringBuilder result) {
+        if (result.length() == 0) {
+            return false;
+        }
         char lastChar = result.charAt(result.length() - 1);
         return spaceChars.contains(lastChar) || Character.isDigit(lastChar);
     }
