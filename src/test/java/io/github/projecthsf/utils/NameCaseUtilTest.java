@@ -3,6 +3,7 @@ package io.github.projecthsf.utils;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.stream.Stream;
 
@@ -40,6 +41,36 @@ class NameCaseUtilTest {
         assertEquals("Your Name 012", NameCaseUtil.toTitleCase(input));
     }
 
+    @ParameterizedTest
+    @MethodSource("specialTestProvider")
+    void toCamelCaseSpecial(String expected, String input) {
+        assertEquals(expected, NameCaseUtil.toCamelCase(input));
+    }
+
+    @ParameterizedTest
+    @MethodSource("specialTestProvider")
+    void toSnakeCaseSpecial(String expected, String input) {
+        assertEquals(expected, NameCaseUtil.toSnakeCase(input));
+    }
+
+    @ParameterizedTest
+    @MethodSource("specialTestProvider")
+    void toKebabCaseSpecial(String expected, String input) {
+        assertEquals(expected, NameCaseUtil.toKebabCase(input));
+    }
+
+    @ParameterizedTest
+    @MethodSource("specialTestProvider")
+    void toPascalCaseSpecial(String expected, String input) {
+        assertEquals(expected, NameCaseUtil.toPascalCase(input));
+    }
+
+    @ParameterizedTest
+    @MethodSource("specialTestProvider")
+    void toTitleCaseSpecial(String expected, String input) {
+        assertEquals(expected, NameCaseUtil.toTitleCase(input));
+    }
+
     private static Stream<Arguments> dataTestProvider() {
         return Stream.of(
                 Arguments.of("yourName012"),
@@ -56,6 +87,24 @@ class NameCaseUtilTest {
                 Arguments.of("  Your   Name 012"),
                 Arguments.of("  Your ;,!@#$%^&*()-=\\{}\":?><}  Name 012"),
                 Arguments.of("  your   name 012")
+        );
+    }
+
+    private static Stream<Arguments> specialTestProvider() {
+        return Stream.of(
+                Arguments.of("1983", "1983"),
+                Arguments.of("1983", "   1983"),
+                Arguments.of("01983", "01983"),
+                Arguments.of("01983", "   01983"),
+                Arguments.of("01983", "   __01983"),
+                Arguments.of("1983", "1983__"),
+                Arguments.of("1983", "   1983__"),
+                Arguments.of("1983", "1983  "),
+                Arguments.of("1983", "   1983  "),
+                Arguments.of("", "   /  "),
+                Arguments.of("", ""),
+
+                Arguments.of("", "___")
         );
     }
 }
