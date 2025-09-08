@@ -103,6 +103,7 @@ class NameCaseUtilTest {
                 Arguments.of("1983", "   1983  "),
                 Arguments.of("", "   /  "),
                 Arguments.of("", ""),
+                Arguments.of("", null),
 
                 Arguments.of("", "___")
         );
