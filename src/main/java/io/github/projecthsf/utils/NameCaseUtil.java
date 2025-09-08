@@ -62,6 +62,9 @@ final public class NameCaseUtil {
 
 
     private static String getNameCase(String str, boolean upperCaseFirstLetter, boolean upperCaseFirstWordLetter) {
+        if (str == null || str.isEmpty()) {
+            return "";
+        }
         StringBuilder result = new StringBuilder();
 
         for (char c : str.toCharArray()) {
